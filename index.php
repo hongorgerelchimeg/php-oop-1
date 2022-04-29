@@ -36,8 +36,8 @@ class Movie
     {
         $this->language = $_language;
     }
-    //Put vote into array of votes and count increase total vote number
-    public function setVote($_vote)
+    
+    public function setVote($_vote) //Put vote into array of votes and count increase total vote number
     {
         $this->votes[] = $_vote;
         $this->voteCount++;
@@ -60,16 +60,8 @@ class Movie
     {
         return $this->language;
     }
-    public function getVote()
-    {
-        return $this->vote;
-    }
-    public function getAdult()
-    {
-        return $this->adult;
-    }
-    // Get Average Votes 
-    public function getVotesAverage()
+     
+    public function getVotesAverage() // Get Average Votes
     {
         $totalVote = array_sum($this->votes);
         return round($totalVote / $this->voteCount);
@@ -79,8 +71,8 @@ class Movie
     {
         return $this->voteCount;
     }
-    // Age Check
-    public function getAgeCheck()
+   
+    public function getAgeCheck()   // Age Check
     {
         if ($this->adult == true) {
             return '+18';
