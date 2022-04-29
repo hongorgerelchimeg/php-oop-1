@@ -19,11 +19,11 @@ class Movie
     private $votes = [];
     private $adult;
 
-    public function __construct(string $title,string $genre,bool $adult)
+    public function __construct(string $_title,string $_genre,bool $_adult)
     {
-        $this->title = $title;
-        $this->genre = $genre;
-        $this->adult = $adult;
+        $this->title = $_title;
+        $this->genre = $_genre;
+        $this->adult = $_adult;
     }
 
     //Setters
