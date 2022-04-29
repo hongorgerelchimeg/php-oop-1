@@ -15,7 +15,7 @@ class Movie
     private $genre;
     private $director;
     private $language;
-    private $vote;
+    private $voteCount;
     private $votes = [];
     private $adult;
 
@@ -36,6 +36,13 @@ class Movie
     {
         $this->language = $_language;
     }
+    //Put vote into array of votes and count increase total vote number
+    public function setVote($_vote)
+    {
+        $this->votes[] = $_vote;
+        $this->voteCount++;
+    }
+
     //Getters
     public function getTitle()
     {
@@ -61,11 +68,42 @@ class Movie
     {
         return $this->adult;
     }
+    // Get Average Votes 
+    public function getVotesAverage()
+    {
+        $totalVote = array_sum($this->votes);
+        return round($totalVote / $this->voteCount);
+    }
+
+    public function getVoteCount()
+    {
+        return $this->voteCount;
+    }
+    // Age Check
+    public function getAgeCheck()
+    {
+        if ($this->adult == true) {
+            return '+18';
+        }
+        return 'For All Age';
+    }
     //Methods
 
-    public function 
 }
 
 $movieSpiderMan = new Movie('Spider Man', 'Action', False);
+$movieSpiderMan->setVote(4);
+$movieSpiderMan->setVote(5);
+$movieSpiderMan->setVote(4);
+$movieSpiderMan->setVote(1);
+$movieSpiderMan->setVote(1);
+$movieSpiderMan->setVote(1);
+$movieSpiderMan->setVote(1);
 var_dump($movieSpiderMan); 
-echo $movieSpiderMan->getTitle();
+echo $movieSpiderMan->getTitle() . ' -> ' . 'Movie Title';
+echo '<br><br>';
+echo $movieSpiderMan->getVotesAverage() . ' -> ' . 'Movie Average Vote';
+echo '<br><br>';
+echo $movieSpiderMan->getVoteCount() . ' -> ' . 'Vote Count';
+echo '<br><br>';
+echo $movieSpiderMan->getAgeCheck();
