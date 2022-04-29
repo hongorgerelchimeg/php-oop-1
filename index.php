@@ -83,6 +83,16 @@ class Movie
 
 }
 
+function movieInfromation($movieName) {
+    echo $movieName->getTitle() . ' -> ' . 'Movie Title';
+    echo '<br><br>';
+    echo $movieName->getVotesAverage() . ' -> ' . 'Movie Average Vote';
+    echo '<br><br>';
+    echo $movieName->getVoteCount() . ' -> ' . 'Vote Count';
+    echo '<br><br>';
+    echo $movieName->getAgeCheck();
+}
+
 $movieSpiderMan = new Movie('Spider Man', 'Action', False);
 $movieSpiderMan->setVote(4);
 $movieSpiderMan->setVote(5);
@@ -91,11 +101,15 @@ $movieSpiderMan->setVote(1);
 $movieSpiderMan->setVote(1);
 $movieSpiderMan->setVote(1);
 $movieSpiderMan->setVote(1);
-var_dump($movieSpiderMan); 
-echo $movieSpiderMan->getTitle() . ' -> ' . 'Movie Title';
+
+$movieHorror = new Movie('Horror', 'Horror', True);
+$movieHorror->setVote(1);
+$movieHorror->setVote(1);
+
+
+movieInfromation($movieSpiderMan);
+
 echo '<br><br>';
-echo $movieSpiderMan->getVotesAverage() . ' -> ' . 'Movie Average Vote';
 echo '<br><br>';
-echo $movieSpiderMan->getVoteCount() . ' -> ' . 'Vote Count';
-echo '<br><br>';
-echo $movieSpiderMan->getAgeCheck();
+
+movieInfromation($movieHorror);
